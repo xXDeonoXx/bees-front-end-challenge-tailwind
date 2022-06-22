@@ -21,7 +21,7 @@ const BreweryCard: React.FC<BreweryCardProps> = ({
   const address =
     brewery.street || brewery.address_2 || brewery.address_3 || undefined;
   return (
-    <div className='relative border border-black bg-white w-[23rem] h-72 rounded px-6 py-7 flex flex-col'>
+    <div className='outline outline-0 hover:outline-2 outline-iris-100 relative border border-black  bg-white w-[23rem] h-72 rounded px-6 py-7 flex flex-col'>
       <div
         className='w-5 absolute right-2 top-2 cursor-pointer'
         onClick={() => {
@@ -38,19 +38,10 @@ const BreweryCard: React.FC<BreweryCardProps> = ({
         {brewery.country && ` - ${brewery.country}`}
       </p>
       <div className='w-full flex flex-wrap gap-x-4 gap-y-7'>
-        {brewery.brewery_type && (
-          <CardChip
-            label={brewery.brewery_type}
-            icon={<ChartSquareBarIcon />}
-          />
-        )}
-        {brewery.postal_code && (
-          <CardChip label={brewery.postal_code} icon={<LocationMarkerIcon />} />
-        )}
-        {brewery.phone && (
-          <CardChip label={brewery.phone} icon={<PhoneIcon />} />
-        )}
-        <CardChip label={'add more'} icon={<PlusCircleIcon />} />
+        <CardChip label={brewery.brewery_type} icon={<ChartSquareBarIcon />} />
+        <CardChip label={brewery.postal_code} icon={<LocationMarkerIcon />} />
+        <CardChip label={brewery.phone} icon={<PhoneIcon />} />
+        <CardChip editable label={'add more'} icon={<PlusCircleIcon />} />
       </div>
     </div>
   );
